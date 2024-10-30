@@ -1,0 +1,246 @@
+
+<!doctype html>
+<html>
+
+	<head>
+		<!-- Include a required theme -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+		<meta charset="utf-8">
+		<title>PROFILE KHÔNG XỊN</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" href="./img/pnghero_family-guy-peter-griffin-lois-stewie-homer-simpson.png" type="image/x-icon">
+	</head>
+	<body onclick="audio.play()">
+		<div class="content">
+			<img src="./img/IMG_0920.GIF" alt="">
+			<div class="content_r clearfix">
+				<div class="content_l clearfix">
+					<h2 style="font-family: Bungee; text-shadow: 3px 3px 0px rgb(255, 255, 255);">ĐÀO MINH TRIẾT<3</h2>
+					<p class="bio">Trai xinh gái đẹp đều thấy dòng này</p>
+					<p class="bio">Zalo: 0964415165</p>
+					
+					<br>
+					<p class="color_1">Thu đi để lại lá vàng <br> Tui đi để lại cho nàng bài thơ</p>
+					<!-- <p class="color_1"></p> -->
+					<br>
+					<div class="khunglink">
+						<div class="link">
+							<p class="deeppink" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 25px; text-decoration: underline overline; text-decoration-color: rgb(194, 248, 255); font-family: Dosis;">↓↓- Mạng xã hội của tui -↓↓</p>
+							<a href="https://www.facebook.com/dmt1434/" class="black" target="_blank"><i class="fa fa-facebook-square"></i></a>
+							<a href="https://www.instagram.com/minhtriet1434/" class="black" target="_blank"><i class="fa fa-instagram"></i></a>
+							<a href="https://www.youtube.com/@triet4855" class="black" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+							<a href="https://soundcloud.com/thang-chuong" class="black" target="_blank"><i class="fa fa-soundcloud"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var audio = new Audio('https://files.catbox.moe/c6789f.mp3');
+			
+			audio.oncanplaythrough = function(){
+				audio.play();
+			}
+	  
+	  audio.loop = true;
+	  
+	  audio.onended = function(){
+	  audio.play();
+	  }
+		</script>	<!---->
+        <script>
+
+			//▬▬▬▬▬▬▬▬▬▬
+			   // HOA ANH DAO
+			//▬▬▬▬▬▬▬▬▬▬
+			var stop, staticx;
+			var img = new Image();
+			img.src = "https://i.imgur.com/R9XUjfF.png";
+			
+						function Sakura(x, y, s, r, fn) {
+							this.x = x;
+							this.y = y;
+							this.s = s;
+							this.r = r;
+							this.fn = fn;
+						}
+			
+						Sakura.prototype.draw = function(cxt) {
+							cxt.save();
+							var xc = 40 * this.s / 4;
+							cxt.translate(this.x, this.y);
+							cxt.rotate(this.r);
+							cxt.drawImage(img, 0, 0, 40 * this.s, 40 * this.s)
+							cxt.restore();
+						}
+			
+						Sakura.prototype.update = function() {
+							this.x = this.fn.x(this.x, this.y);
+							this.y = this.fn.y(this.y, this.y);
+							this.r = this.fn.r(this.r);
+							if(this.x > window.innerWidth ||
+								this.x < 0 ||
+								this.y > window.innerHeight ||
+								this.y < 0
+							) {
+								this.r = getRandom('fnr');
+								if(Math.random() > 0.4) {
+									this.x = getRandom('x');
+									this.y = 0;
+									this.s = getRandom('s');
+									this.r = getRandom('r');
+								} else {
+									this.x = window.innerWidth;
+									this.y = getRandom('y');
+									this.s = getRandom('s');
+									this.r = getRandom('r');
+								}
+							}
+						}
+			
+						SakuraList = function() {
+							this.list = [];
+						}
+						SakuraList.prototype.push = function(sakura) {
+							this.list.push(sakura);
+						}
+						SakuraList.prototype.update = function() {
+							for(var i = 0, len = this.list.length; i < len; i++) {
+								this.list[i].update();
+							}
+						}
+						SakuraList.prototype.draw = function(cxt) {
+							for(var i = 0, len = this.list.length; i < len; i++) {
+								this.list[i].draw(cxt);
+							}
+						}
+						SakuraList.prototype.get = function(i) {
+							return this.list[i];
+						}
+						SakuraList.prototype.size = function() {
+							return this.list.length;
+						}
+			
+						function getRandom(option) {
+							var ret, random;
+							switch(option) {
+								case 'x':
+									ret = Math.random() * window.innerWidth;
+									break;
+								case 'y':
+									ret = Math.random() * window.innerHeight;
+									break;
+								case 's':
+									ret = Math.random();
+									break;
+								case 'r':
+									ret = Math.random() * 5;
+									break;
+								case 'fnx':
+									random = -0.5 + Math.random() * 1;
+									ret = function(x, y) {
+										return x + 0.5 * random - 1;
+									};
+									break;
+								case 'fny':
+									random = 0.5 + Math.random() * 0.5
+									ret = function(x, y) {
+										return y + random;
+									};
+									break;
+								case 'fnr':
+									random = Math.random() * 0.01;
+									ret = function(r) {
+										return r + random;
+									};
+									break;
+							}
+							return ret;
+						}
+			
+						function startSakura() {
+			
+							requestAnimationFrame = window.requestAnimationFrame ||
+								window.mozRequestAnimationFrame ||
+								window.webkitRequestAnimationFrame ||
+								window.msRequestAnimationFrame ||
+								window.oRequestAnimationFrame;
+							var canvas = document.createElement('canvas'),
+								cxt;
+							staticx = true;
+							canvas.height = window.innerHeight;
+							canvas.width = window.innerWidth;
+							canvas.setAttribute('style', 'position: fixed;left: 0;top: 0;pointer-events: none;');
+							canvas.setAttribute('id', 'canvas_sakura');
+							document.getElementsByTagName('body')[0].appendChild(canvas);
+							cxt = canvas.getContext('2d');
+							var sakuraList = new SakuraList();
+							for(var i = 0; i < 50; i++) {
+								var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny;
+								randomX = getRandom('x');
+								randomY = getRandom('y');
+								randomR = getRandom('r');
+								randomS = getRandom('s');
+								randomFnx = getRandom('fnx');
+								randomFny = getRandom('fny');
+								randomFnR = getRandom('fnr');
+								sakura = new Sakura(randomX, randomY, randomS, randomR, {
+									x: randomFnx,
+									y: randomFny,
+									r: randomFnR
+								});
+								sakura.draw(cxt);
+								sakuraList.push(sakura);
+							}
+							stop = requestAnimationFrame(function() {
+								cxt.clearRect(0, 0, canvas.width, canvas.height);
+								sakuraList.update();
+								sakuraList.draw(cxt);
+								stop = requestAnimationFrame(arguments.callee);
+							})
+						}
+			
+						window.onresize = function() {
+							var canvasSnow = document.getElementById('canvas_snow');
+							canvasSnow.width = window.innerWidth;
+							canvasSnow.height = window.innerHeight;
+						}
+			
+						img.onload = function() {
+							startSakura();
+						}
+			
+						function stopp() {
+							if(staticx) {
+								var child = document.getElementById("canvas_sakura");
+								child.parentNode.removeChild(child);
+								window.cancelAnimationFrame(stop);
+								staticx = false;
+							} else {
+								startSakura();
+							}
+						}
+					
+						
+			
+			
+			//////////////////////////////////////////////////////////////
+			
+		</script>	<!---->
+		<script>
+				Swal.fire();
+	  
+	  Swal.fire(
+		'𝐃𝐀𝐎 𝐌𝐈𝐍𝐇 𝐓𝐑𝐈𝐄𝐓',
+		'Xin Kính Chào Bạn',
+		'success',
+	  )
+		</script>	<!---->
+	</body>
+</html>

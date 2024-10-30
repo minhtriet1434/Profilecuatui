@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+body {
+    background: url(./img/HEROSCREEN.CC-WALLPAPER-090124-03.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.content {
+    width: 1000px;
+    height: 500px;
+    margin: 200px auto 0 auto;
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.26);
+    transition: all 1.0s;
+    /*box-shadow: 0px 0px 20px rgba(0,0,0,0.3);*/
+}
+
+.content img {
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin: 150px 0 0 60px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px;
+    border-bottom: 15px #1F2023 solid;
+    border-left: 15px white solid;
+    border-right: 15px #1F2023 solid;
+    border-top: 15px white solid;
+    transition: all 1s ease-in-out;
+}
+
+.content img:hover {
+    box-shadow: 0px 0px 30px white;
+    transition: all 1s ease-in-out;
+}
+
+.content:hover {
+    box-shadow: 0px 0px 20px rgb(0, 162, 255);
+}
+
+.content_r {
+    float: right;
+    width: max-content;
+    margin: 80px 60px 0 0;
+    	/* background-color: pink; */
+}
+
+.content_l {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.content_l h5 {
+
+    font-size: 17px;
+}
+
+.bio {
+    margin-top: 10px;
+    color: #1F2023;
+    font-size: 18px;
+}
+
+.color_1 {
+    color: #f5f6ff;
+    font-size: 20px;
+    font-family: Dosis;
+    text-shadow: 2px 2px 2px black;
+}
+
+.deeppink {
+    color: rgb(194, 248, 255);
+}
+
+.link {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+.link a {
+    display: block;
+    float: left;
+    width: 120px;
+    height: 45px;
+    margin: 5px 5px 0 0;
+    	/* padding: 0 15px; */
+    color: #fff;
+    line-height: 45px;
+    transition: all 0.8s;
+    /*	background-color: deeppink;*/
+    border-radius: 20px;
+    outline: auto;
+
+}
+
+.link a:hover {
+    background-color: rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0px 20px rgb(61, 196, 230);
+}
+
+.khunglink {
+    display: flex;
+    border-radius: 10px;
+    outline: #1F2023 10px solid;
+    background-color: #1f202359;
+}
+
+.black {
+    background-color: #1F2023;
+    
+}
