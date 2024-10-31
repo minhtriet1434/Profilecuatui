@@ -181,7 +181,7 @@ h2.tieude:hover {
 .khunglink:hover {
     backdrop-filter: blur(5px);
     transform: scale(1.05);
-    border-radius: 20px
+    border-radius: 20px;
     transition: all 0.5s ease-in-out;
 }
 
